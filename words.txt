@@ -1,0 +1,9 @@
+mouse
+monitor
+keyboard
+apple
+wifi
+windows
+linux
+mac
+ubuntu
