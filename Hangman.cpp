@@ -4,17 +4,30 @@
 #include <time.h>
 
 int main(){
+    const int maxkata = 2048;
+    const int maxpanjang = 64;
     srand(time(NULL));
     
-    char kata [] [12] = {
-        "mouse",
-        "monitor",
-        "keyboard",
-        "apple",
-        "wifi",
-        "windows",
-        "linux"
-    };
+    char kata[maxkata][maxpanjang];
+    int katamasuk = 0;
+
+    FILE *file = fopen("words.txt","r");
+
+    if(file == NULL){
+        printf("Gagal membaca file\n");
+    }
+
+    char input[64];
+
+    while(fgets(input,63, file)){
+        sscanf(input, "%s", kata[katamasuk]);
+        printf("Terpindai: Input:%s kata[%d]:%s\n",input,katamasuk,kata[katamasuk]);
+        katamasuk++;
+    }
+
+    printf("Jumlah Kata Masuk:%d\n",katamasuk);
+
+    fclose(file);
 
     int indeksAcak = rand() % 7;
     int sisaNyawa = 6;
